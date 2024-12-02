@@ -26,6 +26,17 @@ const menuItems = [
         contexts: ['selection']
     },
     {
+        id: "Sandbox",
+        title: "Sandbox",
+        contexts: ['selection']
+    },
+    {
+        parentId: "Sandbox",
+        id: "Website Sandbox",
+        title: "Website Sandbox",
+        contexts: ['selection']
+    },
+    {
         parentId: "Abuse",
         id: "IP Abuse",
         title: "IP Reputation",

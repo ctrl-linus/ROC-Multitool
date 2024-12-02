@@ -17,7 +17,8 @@ const urls = {
     "Error Info": ["https://login.microsoftonline.com/error?code="],
     "Event Info": ["https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid="],
     "VPN Info": ["https://iphub.info/?ip=", "https://www.ip2location.com/demo/", "https://db-ip.com/", "https://metrics.torproject.org/rs.html#search/"],
-    "Email Info": ["https://exchange.xforce.ibmcloud.com/url/", "https://mxtoolbox.com/SuperTool.aspx?run=toolpage&action=blacklist:"]
+    "Email Info": ["https://exchange.xforce.ibmcloud.com/url/", "https://mxtoolbox.com/SuperTool.aspx?run=toolpage&action=blacklist:"],
+    "Website Sandbox": ["https://www.browserling.com/browse/win10/chrome116/"]
 };
 
 
