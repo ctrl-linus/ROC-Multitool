@@ -19,37 +19,26 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener((contextClick) => {
     if (contextClick.selectionText && contextClick.menuItemId in urls) {
         const urlsForMenuItem = urls[contextClick.menuItemId];
+        let encoded;
         switch (contextClick.menuItemId) {
             case "CC_Magic":
-                urlsForMenuItem.forEach((url) => {
-                    let encoded = url + btoa(fixedEncodeURI(contextClick.selectionText)).replaceAll('=', '');
-                    chrome.tabs.create({ url: encoded });
-                });
-                break;
             case "CC_Defang":
-                urlsForMenuItem.forEach((url) => {
-                    let encoded = url + btoa(fixedEncodeURI(contextClick.selectionText)).replaceAll('=', '');
-                    chrome.tabs.create({ url: encoded });
-                });
-                break;
             case "CC_Resolve_Domain":
                 urlsForMenuItem.forEach((url) => {
-                    let encoded = url + btoa(fixedEncodeURI(contextClick.selectionText)).replaceAll('=', '');
-                    chrome.tabs.create({ url: encoded });
+                    encoded = url + btoa(fixedEncodeURI(contextClick.selectionText)).replaceAll('=', '');
                 });
                 break;
             case "fileExt Info":
                 urlsForMenuItem.forEach((url) => {
-                    let encoded = url + fixedEncodeURI(contextClick.selectionText).replaceAll(".", "");
-                    chrome.tabs.create({ url: encoded });
+                    encoded = url + fixedEncodeURI(contextClick.selectionText).replaceAll(".", "");
                 });
                 break;
             default:
                 urlsForMenuItem.forEach((url) => {
-                    let encoded = url + fixedEncodeURI(contextClick.selectionText);
-                    chrome.tabs.create({ url: encoded });
+                    encoded = url + fixedEncodeURI(contextClick.selectionText);
                 });
                 break;
         }
+        chrome.tabs.create({ url: encoded });
     }
 });

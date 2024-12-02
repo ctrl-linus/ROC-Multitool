@@ -11,8 +11,8 @@ const menuItems = [
         contexts: ['selection']
     },
     {
-        id: "CyberChef",
-        title: "CyberChef",
+        id: "Sandbox",
+        title: "Sandbox",
         contexts: ['selection']
     },
     {
@@ -26,8 +26,9 @@ const menuItems = [
         contexts: ['selection']
     },
     {
-        id: "Sandbox",
-        title: "Sandbox",
+        parentId: "Other",
+        id: "CyberChef",
+        title: "CyberChef",
         contexts: ['selection']
     },
     {
