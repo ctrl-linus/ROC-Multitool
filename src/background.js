@@ -19,6 +19,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener((contextClick) => {
     if (contextClick.selectionText && contextClick.menuItemId in urls) {
         const urlsForMenuItem = urls[contextClick.menuItemId];
+        console.log(urlsForMenuItem);
         let encoded;
         switch (contextClick.menuItemId) {
             case "CC_Magic":
@@ -26,19 +27,22 @@ chrome.contextMenus.onClicked.addListener((contextClick) => {
             case "CC_Resolve_Domain":
                 urlsForMenuItem.forEach((url) => {
                     encoded = url + btoa(fixedEncodeURI(contextClick.selectionText)).replaceAll('=', '');
+                    chrome.tabs.create({ url: encoded });
                 });
                 break;
             case "fileExt Info":
                 urlsForMenuItem.forEach((url) => {
                     encoded = url + fixedEncodeURI(contextClick.selectionText).replaceAll(".", "");
+                    chrome.tabs.create({ url: encoded });
                 });
                 break;
             default:
                 urlsForMenuItem.forEach((url) => {
                     encoded = url + fixedEncodeURI(contextClick.selectionText);
+                    chrome.tabs.create({ url: encoded });
                 });
                 break;
         }
-        chrome.tabs.create({ url: encoded });
+        
     }
 });
